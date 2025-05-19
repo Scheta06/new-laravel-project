@@ -1,0 +1,37 @@
+.auth-container {
+    max-width: var(--mxw700);
+    background-color: var(--color5);
+    padding: var(--pg50);
+    align-items: center;
+}
+
+button.primary {
+    max-width: 500px;
+}
+
+h4 > span {
+    color: var(--color3);
+    font-size: var(--font-size3);
+}
+
+@media (max-width:768px) {
+    .auth-container {
+        background-color: transparent;
+        gap: 20px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .auth-input-section {
+        gap: 15px;
+    }
+
+    input.input {
+        min-height: 50px;
+    }
+
+    button.primary {
+        max-width: 290px;
+        min-height: 60px;
+    }
+}

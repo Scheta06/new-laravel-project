@@ -1,0 +1,25 @@
+.profile {
+    max-width: var(--mxw1240);
+}
+
+.user-action-section {
+    max-width: 370px;
+    min-height: 352px;
+    background-color: var(--color5);
+    padding: var(--pg30);
+}
+
+.action-info {
+    max-width: 830px;
+}
+
+.user-info-section {
+    background-color: var(--color5);
+    width: 100%;
+    min-height: 296px;
+    padding: 40px;
+}
+
+@media (max-width:768px) {
+
+}

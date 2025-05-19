@@ -1,0 +1,65 @@
+main.main {
+    max-width: var(--mxw1240);
+    padding: var(--pg50);
+    background-color: var(--color5);
+}
+
+.upper-main {
+    max-width: calc(var(--mxw1240) - var(--pg50)*2);
+}
+
+.photo {
+    max-width: 550px;
+    min-height: 550px;
+    background-color: var(--color6);
+}
+
+.build-section {
+    max-width: 560px;
+    gap: var(--gap40);
+}
+
+.lower-main {
+    margin-top: 40px;
+}
+
+.choose-component {
+    min-height: 70px;
+    background-color: var(--color6);
+    max-width: 560px;
+    border: 2px solid var(--color2);
+    padding: 0 25px;
+    color: var(--color3);
+    text-transform: capitalize;
+}
+
+@media (max-width:768px) {
+    main.main {
+        max-width: 550px;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .photo {
+        min-height: 450px;
+    }
+
+    .build-section {
+        margin-top: 25px;
+        gap: 15px;
+    }
+
+    .build-input-section, .lower-main  {
+        gap: 15px;
+    }
+
+    button.primary {
+        min-height: 70px;
+    }
+}
+
+@media (max-width:425px) {
+    .photo {
+        min-height: 310px;
+    }
+}

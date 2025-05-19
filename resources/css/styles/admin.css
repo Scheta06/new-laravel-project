@@ -1,0 +1,119 @@
+header.admin-header {
+    padding: var(--pd0-100);
+    background-color: var(--color0);
+    border-bottom: 3px solid var(--color2);
+    min-height: var(--mxh120);
+    max-height: var(--mxh120);
+}
+
+.admin-choose-action-list.active {
+    display: block;
+}
+
+button.admin-choose-action-btn {
+    font-size: var(--font-size2);
+    color: var(--color1);
+}
+
+.admin-choose-action-list {
+    display: none;
+    position: absolute;
+    top: 87px;
+    right: 140px;
+    padding: var(--pg15);
+    background-color: var(--color0);
+    border: 3px solid var(--color2);
+    max-width: 300px;
+}
+
+.admin-choose-action-list>ul>li>a {
+    font-size: var(--font-size3);
+    font-weight: bold;
+}
+
+.admin-create-product-choose-category {
+    margin: 100px 0;
+    max-width: var(--mxw1240);
+}
+
+.admin-category-list {
+    margin-top: 40px;
+}
+
+.admin-category-item {
+    min-height: 280px;
+    max-width: 280px;
+    background-color: var(--color7);
+}
+
+input.input, select.input {
+    max-width: 400px;
+    min-height: 60px;
+}
+
+main.admin-create-product-show-container {
+    margin-top: 100px;
+    max-width: var(--mxw1240);
+    max-height: calc(100vh - 220px);
+}
+
+form.admin-create-product-show-form {
+    margin-top: 40px;
+    max-height: calc(100vh - 220px);
+}
+
+.create-product-btn {
+    background-color: var(--color1);
+    min-height: 100px;
+    max-width: 500px;
+    color: var(--color4);
+}
+
+.admin-all-product-section {
+    margin-top: 35px;
+}
+
+.admin-product-block {
+    background-color: var(--color5);
+    min-height: var(--mnh100);
+    padding: 0 var(--pg50);
+}
+
+.admin-product-block > .container > span {
+    font-size: var(--font-size2);
+    font-weight: bold;
+}
+
+.vendor-title {
+    font-size: var(--font-size2);
+    text-transform: uppercase;
+}
+
+@media (max-width:768px) {
+    header.admin-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 60px;
+        max-height: 60px;
+        padding: 30px;
+    }
+
+    header.admin-header>.logotype,
+    .admin-choose-action-list,
+    button.admin-choose-action-btn {
+        display: none;
+    }
+
+    .admin-create-product-choose-category {
+        margin-top: 0;
+    }
+    a.admin-category-item {
+        max-width: 100%;
+        min-height: 60px;
+    }
+
+    main > .admin-category-list {
+        gap: 15px;
+    }
+}

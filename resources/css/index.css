@@ -1,0 +1,311 @@
+/* Подключение шрифта */
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: var(--color1);
+    text-decoration: none;
+}
+
+h1 {
+    font-size: var(--font-size0);
+    letter-spacing: 6px;
+    font-weight: bold;
+    height: 40px;
+}
+
+h2 {
+    font-size: var(--font-size1);
+    font-weight: bold;
+    height: 36px;
+}
+
+h3 {
+    font-size: var(--font-size2);
+    font-weight: bold;
+    height: 30px;
+}
+
+h4 {
+    font-size: var(--font-size3);
+    font-weight: bold;
+    height: 24px;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+     cursor: pointer;
+}
+
+:root {
+    /* Основные цвета */
+
+    --color0: #F9F9F9;
+    --color1: #60745B;
+    --color2: #B8CB9C;
+    --color3: #000000;
+    --color4: #FFFFFF;
+    --color5: #EFEFEB;
+    --color6: #DADADA;
+    --color7: #D9D9D9;
+
+    /* Основные шрифты */
+
+    --font-size0: 2.25rem;
+    --font-size1: 1.75rem;
+    --font-size2: 1.5rem;
+    --font-size3: 1.25rem;
+
+    /* Основные скругления */
+
+    --border-radius0: 10px;
+    --border-radius1: 6px;
+    --border-radius2: 4px;
+
+    /* Основные gap-ы */
+
+    --gap100: 100px;
+    --gap40: 40px;
+    --gap30: 30px;
+    --gap20: 20px;
+    --gap15: 15px;
+
+    /*Основные padding-и*/
+
+    --pd0-100: 0 100px;
+    --pg100: 100px;
+    --pg50: 50px;
+    --pg40: 40px;
+    --pg30: 30px;
+    --pg15: 15px;
+
+    /* Основные размеры */
+
+    --mxw1240: 1240px;
+    --mxw700: 700px;
+    --mnh120: 120px;
+    --mxh120: 120px;
+    --mnh100: 100px;
+    --mnh60: 60px;
+}
+
+/* Размеры элементов */
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+/* Позиционирование элементов */
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.for-over-length {
+    display: flex;
+    justify-content: space-between;
+}
+
+.center-for-over-length {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.column-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.column-full-length {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.center-row {
+    display: flex;
+    align-items: center;
+}
+
+/* Часто используемые классы */
+
+.gap40 {
+    gap: var(--gap40);
+}
+
+.gap30 {
+    gap: var(--gap30);
+}
+
+.gap20 {
+    gap: var(--gap20);
+}
+
+.gap15 {
+    gap: var(--gap15);
+}
+
+.input {
+    width: 100%;
+    min-height: var(--mnh60);
+    border: 2px solid var(--color2);
+    padding: 0 30px;
+    font-size: var(--font-size3);
+    border-radius: var(--border-radius2);
+    transition: 0.2s;
+}
+
+.input:focus {
+    border: 2px solid var(--color1);
+}
+
+.border-radius10 {
+    border-radius: var(--border-radius0);
+}
+
+.border-radius6 {
+    border-radius: var(--border-radius1);
+}
+
+.border-radius4 {
+    border-radius: var(--border-radius2);
+}
+
+.primary {
+    border-radius: var(--border-radius1);
+    background-color: var(--color1);
+    color: var(--color4);
+    border: 0;
+    min-height: var(--mnh100);
+    cursor: pointer;
+}
+
+.alert {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+}
+
+.alert-danger {
+    font-size: inherit;
+    background-color: #485B7C;
+    max-width: 300px;
+    width: 100%;
+    color: var(--color4);
+    opacity: 1;
+    margin-top: 10px;
+    padding: 5px 15px;
+    text-align: justify;
+    animation: fadeOut 0.5s ease 2s forwards;
+}
+
+.alert-success {
+    font-size: inherit;
+    background-color: var(--color1);
+    max-width: 300px;
+    width: 100%;
+    color: var(--color4);
+    opacity: 1;
+    margin-top: 10px;
+    padding: 5px 15px;
+    text-align: justify;
+    animation: fadeOut 0.5s ease 2s forwards;
+}
+
+.row-line {
+    height: 4px;
+    background-color: var(--color6);
+    width: 100%;
+    border-radius: var(--border-radius2);
+}
+
+.capitalize-text {
+    text-transform: capitalize;
+}
+
+.upper-text {
+    text-transform: uppercase;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; display: none; }
+}
+
+/* Непонятно что */
+
+#extension-dpfof {
+    display: none;
+}
+
+@media (max-width:768px) {
+    h1 {
+        height: 30px;
+    }
+
+    h2 {
+        height: 24px;
+    }
+
+    h3 {
+        height: 30px;
+    }
+
+    h4 {
+        height: 18px;
+    }
+
+    :root {
+        --font-size0: 1.5rem;
+        --font-size1: 1.25rem;
+        --font-size2: 1.125rem;
+        --font-size3: 0.875rem;
+    }
+
+    .container {
+        padding: 100px 40px;
+    }
+}
