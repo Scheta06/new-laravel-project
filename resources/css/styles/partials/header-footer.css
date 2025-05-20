@@ -12,10 +12,6 @@ footer.footer {
     border-top: 3px solid var(--color2);
 }
 
-.mobile-footer {
-    display: none;
-}
-
 .up-footer {
     padding: var(--pg40) var(--pg100);
     min-height: 300px;
@@ -45,16 +41,6 @@ footer.footer {
 
     footer.footer {
         display: none;
-    }
-
-    .mobile-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        border-top: 3px solid var(--color2);
-        background-color: var(--color0);
-        height: 60px;
     }
 }
 

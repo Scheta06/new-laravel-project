@@ -9,7 +9,7 @@
     @vite(['resources/css/styles/admin.css', 'resources/js/active.js', 'resources/css/index.css',])
 </head>
 
-<body>
+<body id="admin-body">
     @include('partials.admin-header')
 
     <div class="container center">

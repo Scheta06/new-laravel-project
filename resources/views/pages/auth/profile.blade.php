@@ -6,7 +6,7 @@
             {{ session('status') }}
         </div>
     @endif
-    <main class="container profile for-over-length gap30 full-width">
+    <main class="profile for-over-length gap30 full-width">
         <div class="user-action-section column-display gap30 border-radius10 full-width">
             <ul class="column-display gap30">
                 <li>
@@ -55,8 +55,8 @@
             <div class="user-info-section column-display gap30 border-radius10">
                 @foreach ($userInfo as $key => $value)
                     <div class="info-row column-display">
-                        <div class="container for-over-length">
-                            <h3>{{ $key }}</h3>
+                        <div class="for-over-length">
+                            <h3>{{ $key }}:</h3>
                             <h3>{{ $value }}</h3>
                         </div>
                         <div class="row-line" style="margin-top: 5px"></div>

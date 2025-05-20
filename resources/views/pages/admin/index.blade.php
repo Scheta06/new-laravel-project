@@ -23,20 +23,21 @@
                             data-category="{{ $product->category_id }}">
                             @switch($product->category->type)
                                 @case('processor')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }}
                                         </span> -
                                         <span class="upper-text">
                                             {{ $product->vendor->title }}
                                             {{ $product->processorGeneration->type }}
+                                            {{ $product->processorGeneration->title }}
                                             {{ $product->title }}
                                         </span>
                                     </div>
                                 @break
 
                                 @case('motherboard')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }} -
                                         </span>
@@ -48,7 +49,7 @@
                                 @break
 
                                 @case('cooler')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }} -
                                         </span>
@@ -60,7 +61,7 @@
                                 @break
 
                                 @case('videocard')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }} -
                                         </span>
@@ -72,7 +73,7 @@
                                 @break
 
                                 @case('storage')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">{{ $product->category->title }} - </span>
                                         <span class="upper-text">
                                             {{ $product->vendor->title }}
@@ -82,7 +83,7 @@
                                 @break
 
                                 @case('ram')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }} -
                                             {{ $product->vendor->title }}
@@ -93,7 +94,7 @@
                                 @break
 
                                 @case('psu')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }}
                                         </span> -
@@ -105,7 +106,7 @@
                                 @break
 
                                 @case('chassis')
-                                    <div class="container">
+                                    <div>
                                         <span class="capitalize-text">
                                             {{ $product->category->title }} -
                                             {{ $product->vendor->title }}</span>
@@ -114,11 +115,9 @@
                                         </span>
                                     </div>
                                 @break
-
-                                @default
                             @endswitch
 
-                            <div class="container center-for-over-length gap30">
+                            <div class="center-for-over-length gap30">
                                 <a
                                     href="{{ route('admin.createProduct.edit', ['type' => $product->category->type, 'id' => $product->id]) }}">
                                     <img src="{{ asset('storage/images/partials/PencilLine.svg') }}">

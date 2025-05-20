@@ -270,6 +270,10 @@ button {
     text-transform: uppercase;
 }
 
+.hidden {
+    overflow: hidden;
+}
+
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; display: none; }
@@ -307,5 +311,9 @@ button {
 
     .container {
         padding: 100px 40px;
+    }
+
+    button.primary {
+        min-height: 60px;
     }
 }

@@ -19,4 +19,21 @@
             </li>
         </ul>
     </div>
+
+    <button class="mobile-admin-choose-action-btn center-row">
+        <img src="{{ asset('storage/images/partials/List.png') }}" alt="">
+    </button>
+
+    <div class="mobile-admin-choose-action-list">
+        <ul class="column-display" style="gap: 10px; font-weight: bold">
+            <li><a href="{{ route('admin.index') }}">Все товары</a></li>
+            <li><a href="{{ route('admin.createProduct.index') }}">Создать новый товар</a></li>
+            <li><a href="{{ route('profile') }}">Вернуться в профиль</a></li>
+            <li>
+                <a href="{{ route('logout') }}">
+                    Выйти из аккаунта
+                </a>
+            </li>
+        </ul>
+    </div>
 </header>

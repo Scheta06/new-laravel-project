@@ -6,6 +6,7 @@ use App\Models\Chassis;
 use App\Models\Cooler;
 use App\Models\Motherboard;
 use App\Models\Processor;
+use App\Models\ProcessorGeneration;
 use App\Models\Psu;
 use App\Models\Ram;
 use App\Models\Storage;
@@ -42,150 +43,189 @@ class AdminController extends Controller
     {
         $title = DB::select('select * from categories where type = :type', ['type' => $type]);
 
-        $specificationArray = config('constants.specificationArray');
+        $specificationArray = config('constants.specificationArray')[$type];
 
-        $data = null;
+        $ArrayInfo = [];
 
         switch ($type) {
             case 'processor':
-                $id   = Processor::findOrFail($id);
-                $data = [
-                    'processor_generation_id' => [
-                        'поколение процессора' => $this->processorGeneration,
-                    ],
-                    'socket_id'               => [
-                        'сокет' => $this->socket,
-                    ],
-                    'vendor_id'               => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Processor::findOrFail($id);
+                $selectInfo    = [
+                    'processor_generation_id' => $this->processorGeneration,
+                    'socket_id'               => $this->socket,
+                    'vendor_id'               => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'          => $componentInfo->title,
+                        'description'    => $componentInfo->description,
+                        'cores'          => $componentInfo->cores,
+                        'streams'        => $componentInfo->streams,
+                        'base_frequency' => $componentInfo->base_frequency,
+                        'max_frequency'  => $componentInfo->max_frequency,
                     ],
                 ];
                 break;
             case 'motherboard':
-                $id   = Motherboard::findOrFail($id);
-                $data = [
-                    'chipset_id' => [
-                        'чипсет' => $this->chipset,
-                    ],
-                    'socket_id'  => [
-                        'сокет' => $this->socket,
-                    ],
-                    'form_id'    => [
-                        'форм-фактор' => $this->formFactor,
-                    ],
-                    'vendor_id'  => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Motherboard::findOrFail($id);
+                $selectInfo    = [
+                    'chipset_id' => $this->chipset,
+                    'socket_id'  => $this->socket,
+                    'form_id'    => $this->formFactor,
+                    'vendor_id'  => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'       => $componentInfo->title,
+                        'subtitle'    => $componentInfo->subtitle,
+                        'description' => $componentInfo->description,
                     ],
                 ];
                 break;
             case 'cooler':
-                $id   = Cooler::findOrFail($id);
-                $data = [
-                    'vendor_id' => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Cooler::findOrFail($id);
+                $selectInfo    = [
+                    'vendor_id' => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'       => $componentInfo->title,
+                        'description' => $componentInfo->description,
+                        'power'       => $componentInfo->power,
                     ],
                 ];
                 break;
             case 'storage':
-                $id   = Storage::findOrFail($id);
-                $data = [
-                    'memory_capacity_id' => [
-                        'вместимость памяти' => $this->memoryCapacity,
-                    ],
-                    'vendor_id'          => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Storage::findOrFail($id);
+                $selectInfo    = [
+                    'memory_capacity_id' => $this->memoryCapacity,
+                    'vendor_id'          => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'          => $componentInfo->title,
+                        'description'    => $componentInfo->description,
+                        'reading_rate'   => $componentInfo->reading_rate,
+                        'recording_rate' => $componentInfo->recording_rate,
+                        'max_resource'   => $componentInfo->max_resource,
                     ],
                 ];
                 break;
             case 'ram':
-                $id   = Ram::findOrFail($id);
-                $data = [
-                    'memory_capacity_id' => [
-                        'вместимость памяти' => $this->memoryCapacity,
-                    ],
-                    'type_of_memory_id'  => [
-                        'тип памяти' => $this->typeOfMemory,
-                    ],
-                    'vendor_id'          => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Ram::findOrFail($id);
+                $selectInfo    = [
+                    'memory_capacity_id' => $this->memoryCapacity,
+                    'type_of_memory_id'  => $this->typeOfMemory,
+                    'vendor_id'          => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'         => $componentInfo->title,
+                        'description'   => $componentInfo->description,
+                        'modules_count' => $componentInfo->modules_count,
+                        'frequency'     => $componentInfo->frequency,
                     ],
                 ];
                 break;
             case 'videocard':
-                $id   = Videocard::findOrFail($id);
-                $data = [
-                    'memory_capacity_id' => [
-                        'вместимость памяти' => $this->memoryCapacity,
-                    ],
-                    'type_of_memory_id'  => [
-                        'тип памяти' => $this->typeOfMemory,
-                    ],
-                    'vendor_id'          => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Videocard::findOrFail($id);
+                $selectInfo    = [
+                    'memory_capacity_id' => $this->memoryCapacity,
+                    'type_of_memory_id'  => $this->typeOfMemory,
+                    'vendor_id'          => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'         => $componentInfo->title,
+                        'description'   => $componentInfo->description,
+                        'max_frequency' => $componentInfo->max_frequency,
+                        'power'         => $componentInfo->power,
                     ],
                 ];
                 break;
             case 'psu':
-                $id   = Psu::findOrFail($id);
-                $data = [
-                    'form_id'   => [
-                        'форм-фактор' => $this->formFactor,
-                    ],
-                    'vendor_id' => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Processor::findOrFail($id);
+                $selectInfo    = [
+                    'form_id'   => $this->formFactor,
+                    'vendor_id' => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'       => $componentInfo->title,
+                        'description' => $componentInfo->description,
+                        'power'       => $componentInfo->power,
                     ],
                 ];
                 break;
             case 'chassis':
-                $id   = Chassis::findOrFail($id);
-                $data = [
-                    'form_id'   => [
-                        'форм-фактор' => $this->formFactor,
-                    ],
-                    'vendor_id' => [
-                        'производителя' => $this->vendor,
+                $componentInfo = Processor::findOrFail($id);
+                $selectInfo    = [
+                    'form_id'   => $this->formFactor,
+                    'vendor_id' => $this->vendor,
+                ];
+                $ArrayInfo = [
+                    'componentInfo' =>
+                    [
+                        'title'       => $componentInfo->title,
+                        'description' => $componentInfo->description,
                     ],
                 ];
                 break;
         }
 
         return view('pages.admin.createProduct.edit', [
-            'id'                 => $id,
-            'title'              => $title,
-            'type'               => $type,
-            'data'               => $data,
-            'specificationArray' => $specificationArray,
+            'id'            => $id,
+            'title'         => $title,
+            'type'          => $type,
+            'ArrayInfo'     => $ArrayInfo,
+            'componentInfo' => $componentInfo,
+            'selectInfo'    => $selectInfo,
         ]);
     }
 
-    public function update($type, Request $request)
+    public function update($type, Request $request, $id)
     {
         $data = $request->all();
 
         switch ($type) {
             case 'processor':
-                Processor::create($data);
+                $processor = Processor::find($id);
+                $processor->update($data);
                 break;
             case 'motherboard':
-                Motherboard::create($data);
+                $motherboard = Motherboard::find($id);
+                $motherboard->update($data);
                 break;
             case 'cooler':
-                Cooler::create($data);
+                $cooler = Cooler::find($id);
+                $cooler->update($data);
                 break;
             case 'storage':
-                Storage::create($data);
+                $storage = Storage::find($id);
+                $storage->update($data);
                 break;
             case 'ram':
-                Ram::create($data);
+                $ram = Ram::find($id);
+                $ram->update($data);
                 break;
             case 'videocard':
-                Videocard::create($data);
+                $videocard = Videocard::find($id);
+                $videocard->update($data);
                 break;
             case 'psu':
-                Psu::create($data);
+                $psu = Psu::find($id);
+                $psu->update($data);
                 break;
             case 'chassis':
-                Chassis::create($data);
+                $chassis = Chassis::find($id);
+                $chassis->update($data);
                 break;
         }
 

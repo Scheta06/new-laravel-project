@@ -13,6 +13,3 @@
         </div>
     </div>
 </footer>
-
-<div class="mobile-footer for-over-length full-width">
-</div>

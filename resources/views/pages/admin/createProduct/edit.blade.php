@@ -6,22 +6,22 @@
             {{ session('status') }}
         </div>
     @endif
-    <main class="admin-create-product-show-container container column-full-length full-height">
-        <h1>Новый {{ $title[0]->title }}</h1>
+    <main class="admin-create-product-show-container column-full-length full-height">
+        <h1 class="capitalize-text">{{ $title[0]->title }}</h1>
         <form method="POST" action="{{ route('admin.createProduct.update', ['type' => $type, 'id' => $id]) }}"
             class="admin-create-product-show-form column-full-length gap30 full-height">
             @csrf
-            <div class="container flex gap20 flex-wrap">
-                @foreach ($specificationArray[$type] as $key => $value)
-                    <input type="text" class="input" placeholder="{{ $value }}" name="{{ $key }}" required>
+            <div class="flex gap20 flex-wrap">
+                @foreach ($ArrayInfo as $key => $value)
+                    @foreach ($value as $productInfo => $product)
+                        <input type="text" class="input" name="{{ $productInfo }}" value="{{ $product }}" required>
+                    @endforeach
                 @endforeach
-                @foreach ($data as $key => $value)
-                    <select name="{{ $key }}" required class="input">
-                        @foreach ($value as $key1 => $value1)
-                            <option value="">Выберите {{ $key1 }}</option>
-                            @foreach ($value1 as $key2 => $value2)
-                                <option value="{{ old($value2->id) }}">{{ $value2->type }} {{ $value2->title }}</option>
-                            @endforeach
+
+                @foreach ($selectInfo as $key => $value)
+                    <select name="{{ $key }}" id="" class="input">
+                        @foreach ($value as $item)
+                            <option value="{{ $item->id }}">{{ $item->title }}</option>
                         @endforeach
                     </select>
                 @endforeach
@@ -35,6 +35,8 @@
             </button>
         </form>
     </main>
+
+    {{-- @dd($selectInfo['processor_generation_id'][0]->title) --}}
     <script>
         const editBtn = document.querySelector('button.create-product-btn');
 
