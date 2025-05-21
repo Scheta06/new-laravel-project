@@ -18,8 +18,6 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        $categoryId = $request->input('category_id');
-
         $allProducts = [
             'processor'   => $this->processorInput,
             'motherboard' => $this->motherboardInput,
@@ -42,8 +40,6 @@ class AdminController extends Controller
     public function edit($type, $id)
     {
         $title = DB::select('select * from categories where type = :type', ['type' => $type]);
-
-        $specificationArray = config('constants.specificationArray')[$type];
 
         $ArrayInfo = [];
 
@@ -150,7 +146,7 @@ class AdminController extends Controller
                 ];
                 break;
             case 'psu':
-                $componentInfo = Processor::findOrFail($id);
+                $componentInfo = Psu::findOrFail($id);
                 $selectInfo    = [
                     'form_id'   => $this->formFactor,
                     'vendor_id' => $this->vendor,
@@ -165,7 +161,7 @@ class AdminController extends Controller
                 ];
                 break;
             case 'chassis':
-                $componentInfo = Processor::findOrFail($id);
+                $componentInfo = Chassis::findOrFail($id);
                 $selectInfo    = [
                     'form_id'   => $this->formFactor,
                     'vendor_id' => $this->vendor,

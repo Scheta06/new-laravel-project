@@ -27,6 +27,7 @@ abstract class Controller
     protected $videocardInput;
     protected $psuInput;
     protected $chassisInput;
+    
     protected $socket;
     protected $vendor;
     protected $chipset;

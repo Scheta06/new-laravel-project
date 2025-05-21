@@ -21,4 +21,26 @@
             </a>
         </li>
     </ul>
+
+    <button class="mobile-user-settings-btn">1</button>
+
+    <div class="mobile-user-nav-bar gap30">
+        <ul>
+            <li>
+                <a href="">
+                    <h3>О приложении</h3>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <h3>Мои сборки</h3>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('profile') }}">
+                    <h3>Профиль</h3>
+                </a>
+            </li>
+        </ul>
+    </div>
 </header>

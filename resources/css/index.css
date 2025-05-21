@@ -97,6 +97,7 @@ button {
     --gap30: 30px;
     --gap20: 20px;
     --gap15: 15px;
+    --gap10: 10px;
 
     /*Основные padding-и*/
 
@@ -110,7 +111,9 @@ button {
     /* Основные размеры */
 
     --mxw1240: 1240px;
+    --mxw800: 800px;
     --mxw700: 700px;
+    --mxw400: 400px;
     --mnh120: 120px;
     --mxh120: 120px;
     --mnh100: 100px;
@@ -186,6 +189,10 @@ button {
 
 .gap15 {
     gap: var(--gap15);
+}
+
+.gap10 {
+    gap: var(--gap10);
 }
 
 .input {
@@ -274,6 +281,29 @@ button {
     overflow: hidden;
 }
 
+.mobile-user-settings-btn {
+    display: none;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color1);
+    z-index: 9999;
+}
+
+.mobile-user-nav-bar {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 250px;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color0);
+}
+
+.active-flex {
+    display: flex;
+}
+
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; display: none; }
@@ -315,5 +345,13 @@ button {
 
     button.primary {
         min-height: 60px;
+    }
+
+    input.input, select.input {
+        max-width: 100%;
+    }
+
+    .mobile-user-settings-btn {
+        display: block;
     }
 }

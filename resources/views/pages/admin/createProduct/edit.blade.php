@@ -7,7 +7,19 @@
         </div>
     @endif
     <main class="admin-create-product-show-container column-full-length full-height">
-        <h1 class="capitalize-text">{{ $title[0]->title }}</h1>
+        <h1 class="capitalize-text">
+            {{ $title[0]->title }}
+
+            {{ $componentInfo->vendor->title }}
+            @if ($title[0]->title === 'процессор')
+                {{ $componentInfo->processorGeneration->type }}
+                {{ $componentInfo->processorGeneration->title }}
+            @elseif ($title[0]->title === 'материнская плата')
+                {{ $componentInfo->chipset->title }}
+                {{ $componentInfo->subtitle }}
+            @endif
+            {{ $componentInfo->title }}
+        </h1>
         <form method="POST" action="{{ route('admin.createProduct.update', ['type' => $type, 'id' => $id]) }}"
             class="admin-create-product-show-form column-full-length gap30 full-height">
             @csrf
@@ -35,7 +47,6 @@
             </button>
         </form>
     </main>
-
     {{-- @dd($selectInfo['processor_generation_id'][0]->title) --}}
     <script>
         const editBtn = document.querySelector('button.create-product-btn');

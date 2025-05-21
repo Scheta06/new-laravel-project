@@ -15,35 +15,35 @@ class CategorySeeder extends Seeder
     {
         $Array = [
             [
-                'title' => 'процессор',
+                'title' => 'Процессор',
                 'type' => 'processor',
             ],
             [
-                'title' => 'материнская плата',
+                'title' => 'Материнская плата',
                 'type' => 'motherboard',
             ],
             [
-                'title' => 'оперативная память',
+                'title' => 'Оперативная память',
                 'type' => 'ram',
             ],
             [
-                'title' => 'кулер',
+                'title' => 'Кулер',
                 'type' => 'cooler',
             ],
             [
-                'title' => 'накопитель',
+                'title' => 'Накопитель',
                 'type' => 'storage',
             ],
             [
-                'title' => 'видеокарта',
+                'title' => 'Видеокарта',
                 'type' => 'videocard',
             ],
             [
-                'title' => 'блок питания',
+                'title' => 'Блок питания',
                 'type' => 'psu',
             ],
             [
-                'title' => 'корпус',
+                'title' => 'Корпус',
                 'type' => 'chassis',
             ],
         ];

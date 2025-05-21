@@ -20,7 +20,7 @@
         </ul>
     </div>
 
-    <button class="mobile-admin-choose-action-btn center-row">
+    <button class="mobile-admin-choose-action-btn center-row border-radius6" style="background-color: #000">
         <img src="{{ asset('storage/images/partials/List.png') }}" alt="">
     </button>
 

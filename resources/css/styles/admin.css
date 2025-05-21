@@ -7,7 +7,7 @@ header.admin-header {
 }
 
 .admin-choose-action-list.active, .mobile-admin-choose-action-list.active {
-    display: flex;
+    display: block;
 }
 
 button.admin-choose-action-btn {
@@ -156,6 +156,7 @@ button.mobile-admin-choose-action-btn {
     form.admin-create-product-show-form {
         max-height: 100%;
         margin-bottom: 40px;
+        align-items: center;
     }
 
     .container {
@@ -170,5 +171,7 @@ button.mobile-admin-choose-action-btn {
         display: flex;
         z-index: 9999;
         justify-content: end;
+        width: 30px;
+        height: 30px;
     }
 }
