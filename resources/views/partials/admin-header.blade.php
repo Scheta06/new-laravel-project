@@ -20,8 +20,10 @@
         </ul>
     </div>
 
-    <button class="mobile-admin-choose-action-btn center-row border-radius6" style="background-color: #000">
-        <img src="{{ asset('storage/images/partials/List.png') }}" alt="">
+    <button class="mobile-user-settings-btn column-full-length">
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
     </button>
 
     <div class="mobile-admin-choose-action-list">

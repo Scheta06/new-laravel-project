@@ -31,7 +31,7 @@ class ChipsetSeeder extends Seeder
                 'type' =>'intel'
             ],
             [
-                'title' => '760',
+                'title' => 'B760',
                 'type' =>'intel'
             ],
             [

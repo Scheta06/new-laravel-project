@@ -31,8 +31,7 @@ class Motherboard extends Model
         return $this->belongsTo(Socket::class);
     }
 
-    public function formFactor()
-    {
+    public function form() {
         return $this->belongsTo(FormFactor::class);
     }
 

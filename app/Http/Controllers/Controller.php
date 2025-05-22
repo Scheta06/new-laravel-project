@@ -27,7 +27,7 @@ abstract class Controller
     protected $videocardInput;
     protected $psuInput;
     protected $chassisInput;
-    
+
     protected $socket;
     protected $vendor;
     protected $chipset;
@@ -39,7 +39,7 @@ abstract class Controller
     public function __construct()
     {
         $this->processorInput   = Processor::with(['category', 'processorGeneration', 'socket', 'vendor'])->get();
-        $this->motherboardInput = Motherboard::with(['category', 'chipset', 'socket', 'formFactor', 'vendor'])->get();
+        $this->motherboardInput = Motherboard::with(['category', 'chipset', 'socket', 'form', 'vendor'])->get();
         $this->coolerInput      = Cooler::with(['category', 'vendor'])->get();
         $this->ramInput         = Ram::with(['category', 'memoryCapacity', 'typeOfMemory', 'vendor'])->get();
         $this->storageInput     = Storage::with(['category', 'memoryCapacity', 'vendor'])->get();

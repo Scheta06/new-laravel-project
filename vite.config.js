@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/css/styles/profile.css',
                 'resources/css/styles/auth.css',
                 'resources/css/styles/admin.css',
+                'resources/css/styles/cart.css',
             ],
             refresh: true,
         }),

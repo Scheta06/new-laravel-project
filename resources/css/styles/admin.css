@@ -166,12 +166,4 @@ button.mobile-admin-choose-action-btn {
     .create-product-btn {
         min-height: 60px;
     }
-
-    button.mobile-admin-choose-action-btn {
-        display: flex;
-        z-index: 9999;
-        justify-content: end;
-        width: 30px;
-        height: 30px;
-    }
 }

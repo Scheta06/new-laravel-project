@@ -22,7 +22,11 @@
         </li>
     </ul>
 
-    <button class="mobile-user-settings-btn">1</button>
+    <button class="mobile-user-settings-btn column-full-length">
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+    </button>
 
     <div class="mobile-user-nav-bar gap30">
         <ul>

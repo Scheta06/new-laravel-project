@@ -1,0 +1,54 @@
+main.main-cart {
+    max-width: var(--mxw1240);
+    min-height: 370px;
+}
+
+.photo-section {
+    max-width: 300px;
+}
+
+.goBack-link {
+    min-height: 40px;
+    width: 100%;
+    background-color: var(--color7);
+    font-size: var(--font-size3);
+    color: var(--color3);
+    font-weight: bold;
+}
+
+.component-photo {
+    background-color: var(--color7);
+    min-height: 300px;
+    width: 100%;
+}
+
+.component-title {
+    font-size: var(--font-size1);
+    font-weight: bold;
+    height: 40px;
+}
+
+.componentInfo-section {
+    max-width: 900px;
+}
+
+.component-description {
+    background-color: var(--color7);
+    padding: 15px;
+    text-align: justify;
+}
+
+.component-specification {
+    min-height: 300px;
+    background-color: var(--color7);
+    padding: 35px 50px;
+}
+
+.specification-item {
+    width: 100%;
+    min-height: 60px;
+}
+
+@media (max-width:768px) {
+
+}

@@ -1,9 +1,9 @@
 /* Подключение шрифта */
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    font-family: "Inconsolata", monospace;
+    font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     margin: 0;
     padding: 0;
@@ -283,10 +283,16 @@ button {
 
 .mobile-user-settings-btn {
     display: none;
-    width: 30px;
-    height: 30px;
-    background-color: var(--color1);
+    width: 25px;
+    height: 20px;
     z-index: 9999;
+}
+
+.row {
+    width: 100%;
+    height: 4px;
+    background-color: var(--color3);
+    border-radius: var(--border-radius2);
 }
 
 .mobile-user-nav-bar {
@@ -352,6 +358,6 @@ button {
     }
 
     .mobile-user-settings-btn {
-        display: block;
+        display: flex;
     }
 }

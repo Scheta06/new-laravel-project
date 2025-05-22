@@ -1,7 +1,7 @@
 const adminBtn = document.querySelector('.admin-choose-action-btn');
 const chooseList = document.querySelector('.admin-choose-action-list');
 const img = document.querySelector('img');
-const mobileAdminBtn = document.querySelector('.mobile-admin-choose-action-btn');
+const mobileAdminBtn = document.querySelector('.mobile-user-settings-btn');
 const mobileAdminList = document.querySelector('.mobile-admin-choose-action-list');
 const body = document.querySelector('#admin-body');
 

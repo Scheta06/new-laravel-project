@@ -25,31 +25,76 @@
                             </div>
                             @switch($type)
                                 @case('processor')
-                                    <div class="product-description center-for-over-length border-radius6 full-height full-width upper-text">
-                                        {{ $value->vendor->title }}
-                                        {{ $value->processorGeneration->type }}
-                                        {{ $value->processorGeneration->title }}
-                                        {{ $value->title }}
-                                        [{{ $value->socket->title }}, {{ $value->cores }} * {{ $value->base_frequency }}]
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->processorGeneration->type) }}
+                                        {{ Str::upper($value->processorGeneration->title) }}
+                                        {{ Str::upper($value->title) }}
+                                        [{{ Str::upper($value->socket->title) }}, {{ $value->cores }} *
+                                        {{ $value->base_frequency }}]
                                     </div>
                                 @break
 
                                 @case('motherboard')
-                                    <div class="product-description center-for-over-length border-radius6 full-height full-width upper-text">
-                                        {{ $value->vendor->title }}
-                                        {{ $value->chipset->title }}
-                                        {{ $value->title }}
-                                        {{ $value->subtitle }}
-                                        [{{ $value->socket->title }}, ]
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->chipset->title) }}
+                                        {{ Str::upper($value->title) }}
+                                        {{ Str::upper($value->subtitle) }}
+                                        [{{ Str::upper($value->socket->title) }}, {{ Str::upper($value->form->title) }}]
                                     </div>
+
                                 @break
 
                                 @case('ram')
-                                    <div class="product-description center-for-over-length border-radius6 full-height full-width upper-text">
-                                        {{ $value->vendor->title }}
-                                        {{ $value->title }}
-                                        {{ $value->subtitle }}
-                                        [{{ $value->cores }} * {{ $value->base_frequency }}]
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->title) }}
+
+                                        [
+                                        {{ Str::upper($value->modules_count) }}*{{ $value->memoryCapacity->title }}Гб,
+                                        {{ Str::upper($value->frequency) }}МГц,
+                                        {{ Str::upper($value->typeOfMemory->title) }}
+                                        ]
+                                    </div>
+                                @break
+
+                                @case('cooler')
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->title) }}
+                                        [{{ $value->power }} Вт]
+                                    </div>
+                                @break
+
+                                @case('storage')
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->title) }}
+                                        [ Чтение - {{ $value->reading_rate }} МБайт/сек, {{ $value->memoryCapacity->title }}Гб]
+                                    </div>
+                                @break
+
+                                @case('videocard')
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->title) }}
+                                        [{{ $value->max_frequency }} МГц, {{ $value->memoryCapacity->title }}Гб]
+                                    </div>
+                                @break
+
+                                @case('psu')
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->title) }}
+                                        [{{ $value->power }}Вт]
+                                    </div>
+                                @break
+
+                                @case('chassis')
+                                    <div class="product-description center-for-over-length border-radius6 full-height full-width">
+                                        {{ Str::upper($value->vendor->title) }}
+                                        {{ Str::upper($value->title) }}
                                     </div>
                                 @break
 
@@ -58,16 +103,13 @@
 
                         </div>
                         <div class="product-action-section column-display gap20 full-width">
-                            <div class="product-action-link center border-radius6 full-width">
-                                <a href="#">
-                                    Подробнее
-                                </a>
-                            </div>
-                            <div class="product-action-link center border-radius6 full-width">
-                                <a href="#">
-                                    Добавить
-                                </a>
-                            </div>
+                            <a href="{{ route('cart', ['type' => $type, 'id' => $value->id]) }}"
+                                class="product-action-link center border-radius6 full-width">
+                                Подробнее
+                            </a>
+                            <a href="#" class="product-action-link center border-radius6 full-width">
+                                Добавить
+                            </a>
                         </div>
                     </div>
                 @endforeach

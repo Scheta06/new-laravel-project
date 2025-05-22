@@ -19,6 +19,8 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/catalog/{type}', [CatalogController::class, 'index'])->name('catalog');
+    Route::get('/catalog/{type}/{id}', [CatalogController::class, 'show'])->name('cart');
+    Route::post('/catalog/{type}/{id}', [CatalogController::class, 'store'])->name('addItem');
 
     // Профиль, смена пароля, выход из аккаунта
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
@@ -34,7 +36,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-panel/create', [CreateProductController::class, 'index'])->name('admin.createProduct.index');
     Route::get('/admin-panel/create/{type}', [CreateProductController::class, 'show'])->name('admin.createProduct.show');
     Route::post('/admin-panel/create/{type}', [CreateProductController::class, 'create'])->name('admin.createProduct.create');
-    Route::get('/admin-panel/create/{type}/{id}', [AdminController::class, 'edit'])->name('admin.createProduct.edit');
-    Route::post('/admin-panel/create/{type}/{id}', [AdminController::class, 'update'])->name('admin.createProduct.update');
-    Route::delete('/admin-panel/create/{type}/{id}', [AdminController::class, 'destroy'])->name('admin.createProduct.destroy');
+    Route::get('/admin-panel/{type}/{id}/edit', [AdminController::class, 'edit'])->name('admin.createProduct.edit');
+    Route::patch('/admin-panel/{type}/{id}/update', [AdminController::class, 'update'])->name('admin.createProduct.update');
+    Route::delete('/admin-panel/destroy/{type}/{id}', [AdminController::class, 'destroy'])->name('admin.createProduct.destroy');
 });
