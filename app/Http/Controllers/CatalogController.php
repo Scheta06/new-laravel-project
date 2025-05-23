@@ -27,7 +27,6 @@ class CatalogController extends Controller
                 break;
             case 'motherboard':
                 $allProductCase = $this->motherboardInput;
-                $formFactor = FormFactor::all();
                 break;
             case 'cooler':
                 $allProductCase = Cooler::all();
@@ -57,6 +56,7 @@ class CatalogController extends Controller
             'vendor' => $vendor,
             'title' => $title,
             'form' => $form,
+            'type' => $type
         ]);
     }
 

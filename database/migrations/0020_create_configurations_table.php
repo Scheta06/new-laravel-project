@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->default('Конфигурация №:' . rand(1000000000, 9999999999));
+            $table->string('title')->nullable()->default('Конфигурация №:' . rand(1000000000, 9999999999));
             $table->text('description')->nullable();
 
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

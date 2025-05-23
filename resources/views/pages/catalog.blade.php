@@ -43,7 +43,6 @@
                                         {{ Str::upper($value->subtitle) }}
                                         [{{ Str::upper($value->socket->title) }}, {{ Str::upper($value->form->title) }}]
                                     </div>
-
                                 @break
 
                                 @case('ram')
@@ -107,9 +106,12 @@
                                 class="product-action-link center border-radius6 full-width">
                                 Подробнее
                             </a>
-                            <a href="#" class="product-action-link center border-radius6 full-width">
-                                Добавить
-                            </a>
+                            <form method="POST" action="{{ route('addItem', ['id' => $value->id, 'type' => $type]) }}">
+                                @csrf
+                                <button type="submit" class="product-action-link center border-radius6 full-width">
+                                    Добавить
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
@@ -117,5 +119,4 @@
         </div>
     </main>
 
-    {{-- @dd($allProductCase[0]) --}}
 @endsection

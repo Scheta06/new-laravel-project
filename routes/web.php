@@ -18,9 +18,10 @@ Route::get('/register', [RegisterController::class, 'index'])->name('registerFor
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/', [IndexController::class, 'store'])->name('saveConfig');
     Route::get('/catalog/{type}', [CatalogController::class, 'index'])->name('catalog');
     Route::get('/catalog/{type}/{id}', [CatalogController::class, 'show'])->name('cart');
-    Route::post('/catalog/{type}/{id}', [CatalogController::class, 'store'])->name('addItem');
+    Route::post('/catalog/{type}/{id}', [IndexController::class, 'update'])->name('addItem');
 
     // Профиль, смена пароля, выход из аккаунта
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

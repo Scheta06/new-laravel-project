@@ -20,39 +20,59 @@ class Configuration extends Model
         'chassis_id',
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class,);
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->title)) {
+                $model->title = 'Конфигурация №:' . rand(1000000000, 9999999999);
+            }
+        });
     }
 
-    public function processor() {
-        return $this->belongsTo(Processor::class,);
+    public function user()
+    {
+        return $this->belongsTo(User::class, );
     }
 
-    public function motherboard() {
-        return $this->belongsTo(Motherboard::class,);
+    public function processor()
+    {
+        return $this->belongsTo(Processor::class, );
     }
 
-    public function cooler() {
-        return $this->belongsTo(Cooler::class,);
+    public function motherboard()
+    {
+        return $this->belongsTo(Motherboard::class, );
     }
 
-    public function storage() {
-        return $this->belongsTo(Storage::class,);
+    public function cooler()
+    {
+        return $this->belongsTo(Cooler::class, );
     }
 
-    public function ram() {
-        return $this->belongsTo(Ram::class,);
+    public function storage()
+    {
+        return $this->belongsTo(Storage::class, );
     }
 
-    public function videocard() {
-        return $this->belongsTo(Videocard::class,);
+    public function ram()
+    {
+        return $this->belongsTo(Ram::class, );
     }
 
-    public function psu() {
-        return $this->belongsTo(Psu::class,);
+    public function videocard()
+    {
+        return $this->belongsTo(Videocard::class, );
     }
 
-    public function chassis() {
-        return $this->belongsTo(Chassis::class,);
+    public function psu()
+    {
+        return $this->belongsTo(Psu::class, );
+    }
+
+    public function chassis()
+    {
+        return $this->belongsTo(Chassis::class, );
     }
 }
