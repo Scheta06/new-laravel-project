@@ -20,6 +20,7 @@ class CatalogController extends Controller
         $allProductCase = null;
         $vendor = $this->vendor;
         $form = FormFactor::all();
+        $data = Motherboard::findOrFail(session('configuration', ['motherboard']));
 
         switch ($type) {
             case 'processor':
@@ -56,8 +57,9 @@ class CatalogController extends Controller
             'vendor' => $vendor,
             'title' => $title,
             'form' => $form,
-            'type' => $type
-        ]);
+            'type' => $type,
+            'data' => $data
+         ]);
     }
 
     public function show($type, $id)

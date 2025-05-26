@@ -32,6 +32,7 @@
             </div>
         </form>
     </main>
+    @dd($data['motherboard'])
     @if (session('success'))
         <div class="alert alert-success center border-radius6">
             {{ session('success') }}

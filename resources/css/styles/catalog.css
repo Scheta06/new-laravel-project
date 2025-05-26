@@ -23,6 +23,21 @@
     max-width: 120px;
     min-height: 120px;
     background-color: var(--color7);
+    padding: 10px;
+}
+
+.component-compatible {
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+.success {
+    background-color: green;
+}
+
+.danger {
+    background-color: red;
 }
 
 .product-description {

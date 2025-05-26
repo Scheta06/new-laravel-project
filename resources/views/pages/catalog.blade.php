@@ -20,11 +20,18 @@
                 @foreach ($allProductCase as $key => $value)
                     <div class="product-block center-for-over-length gap20 border-radius6 full-width">
                         <div class="flex gap20 full-width full-heigth">
-                            <div class="product-photo border-radius6 full-width full-height">
-
-                            </div>
                             @switch($type)
                                 @case('processor')
+                                    <div class="product-photo border-radius6 full-width full-height">
+                                        @if ($value->socket_id === $data[0]->socket_id)
+                                            <div class="component-compatible success"></div>
+                                        @else
+                                            <div class="component-compatible danger"></div>
+                                        @endif
+                                    </div>
+
+
+
                                     <div class="product-description center-for-over-length border-radius6 full-height full-width">
                                         {{ Str::upper($value->vendor->title) }}
                                         {{ Str::upper($value->processorGeneration->type) }}
@@ -36,6 +43,13 @@
                                 @break
 
                                 @case('motherboard')
+                                    <div class="product-photo border-radius6 full-width full-height">
+                                        @if ($value->socket_id === $motherboardSocket)
+                                            <div class="component-compatible success"></div>
+                                        @else
+                                            <div class="component-compatible danger"></div>
+                                        @endif
+                                    </div>
                                     <div class="product-description center-for-over-length border-radius6 full-height full-width">
                                         {{ Str::upper($value->vendor->title) }}
                                         {{ Str::upper($value->chipset->title) }}
@@ -118,5 +132,4 @@
             </div>
         </div>
     </main>
-
 @endsection
